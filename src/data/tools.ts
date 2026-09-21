@@ -25,6 +25,62 @@ export const tools: Tool[] = [
     component: 'PomodoroTool',
     implemented: true,
     popular: true
+  },
+  {
+    slug: 'eisenhower-matrix',
+    name: 'Eisenhower Matrix',
+    category: 'Prioritize',
+    description: 'Sort tasks into do, schedule, delegate and delete quadrants.',
+    seoTitle: 'Eisenhower Matrix - Prioritize Tasks Online | FocusFlow',
+    metaDescription: 'Free Eisenhower matrix tool. Sort tasks into do first, schedule, delegate and delete quadrants. Saved privately in your browser.',
+    intro: 'Everything feels urgent until you map it. Sort your tasks by urgency and importance and the next action becomes obvious.',
+    howTo: ['Add a task and pick its quadrant.', 'Work the Do first list.', 'Schedule the important-but-not-urgent tasks before they turn urgent.'],
+    examples: [{ title: 'Prepare tomorrow presentation', output: 'Do first (urgent + important). Learn a new skill: Schedule.' }],
+    faqs: [{ q: 'Where is my data stored?', a: 'Only in your browser local storage - no account, no upload.' }],
+    related: ['habit-tracker', 'deadline-countdown', 'pomodoro-timer'],
+    component: 'EisenhowerTool', implemented: true, popular: true
+  },
+  {
+    slug: 'habit-tracker',
+    name: 'Habit Tracker',
+    category: 'Habits',
+    description: 'Daily check-ins with automatic streak counting.',
+    seoTitle: 'Habit Tracker - Build Streaks Online Free | FocusFlow',
+    metaDescription: 'Free habit tracker. Check off daily habits and watch your streaks grow. Private: data stays in your browser.',
+    intro: 'Streaks make habits stick. Check off each habit daily and the counter keeps your chain alive.',
+    howTo: ['Add a habit.', 'Mark it done each day.', 'Protect the streak - it resets after a missed day.'],
+    examples: [{ title: 'Read 20 minutes', output: 'Day 1, day 2... a 30-day chain in a month.' }],
+    faqs: [{ q: 'What if I miss a day?', a: 'The streak resets to zero but total check-ins remain. The chain is a motivator, not a judge.' }],
+    related: ['pomodoro-timer', 'eisenhower-matrix'],
+    component: 'HabitTool', implemented: true, popular: true
+  },
+  {
+    slug: 'deadline-countdown',
+    name: 'Deadline Countdown',
+    category: 'Time',
+    description: 'Live countdown to any date and time.',
+    seoTitle: 'Deadline Countdown - Days, Hours, Minutes Left | FocusFlow',
+    metaDescription: 'Free deadline countdown. Live days, hours, minutes and seconds to any date. Works for passed deadlines too.',
+    intro: 'How long until the launch, the exam, the trip? A live countdown in days, hours, minutes and seconds.',
+    howTo: ['Pick the deadline date and time.', 'Watch the live countdown.', 'After it passes, it shows time since.'],
+    examples: [{ title: 'Project due Friday 18:00', output: '2 days 4 hours 12 minutes left.' }],
+    faqs: [],
+    related: ['pomodoro-timer', 'eisenhower-matrix'],
+    component: 'CountdownTool', implemented: true
+  },
+  {
+    slug: 'box-breathing-timer',
+    name: 'Box Breathing Timer',
+    category: 'Calm',
+    description: 'Guided 4-4-4-4 box breathing for instant calm and focus.',
+    seoTitle: 'Box Breathing Timer - 4-4-4-4 Guided Breathing | FocusFlow',
+    metaDescription: 'Free box breathing timer. Guided 4-4-4-4 breathing cycle to calm down and refocus in minutes.',
+    intro: 'Four seconds in, four hold, four out, four hold. The technique Navy SEALs use to stay calm - and a fast reset before deep work.',
+    howTo: ['Press start.', 'Follow the phase on screen.', 'Continue for 2-5 minutes.'],
+    examples: [{ title: 'Before a presentation', output: 'Three minutes of box breathing lowers the heart rate.' }],
+    faqs: [{ q: 'How often?', a: 'Any time you feel scattered. Many people do one round before each focus session.' }],
+    related: ['pomodoro-timer', 'habit-tracker'],
+    component: 'BreathingTool', implemented: true
   }
 ];
 export const implementedTools = tools.filter((t) => t.implemented);

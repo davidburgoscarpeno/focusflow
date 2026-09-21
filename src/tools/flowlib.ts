@@ -38,3 +38,20 @@ export function boxBreathingPhase(elapsedSec: number, phaseSec = 4): { phase: st
   const idx = Math.floor(pos / phaseSec);
   return { phase: names[idx], intoPhase: Math.floor(pos % phaseSec), phaseLeft: phaseSec - Math.floor(pos % phaseSec) };
 }
+
+export interface Block { label: string; startMin: number; endMin: number; kind: 'task' | 'break' }
+export function planBlocks(tasks: { name: string; minutes: number }[], startMin: number, breakEvery = 50, breakLen = 10): Block[] {
+  const blocks: Block[] = [];
+  let cursor = startMin, sinceBreak = 0;
+  for (const t of tasks) {
+    if (!t.name.trim() || t.minutes <= 0) continue;
+    if (sinceBreak >= breakEvery) { blocks.push({ label: 'Break', startMin: cursor, endMin: cursor + breakLen, kind: 'break' }); cursor += breakLen; sinceBreak = 0; }
+    blocks.push({ label: t.name.trim(), startMin: cursor, endMin: cursor + t.minutes, kind: 'task' });
+    cursor += t.minutes; sinceBreak += t.minutes;
+  }
+  return blocks;
+}
+export function fmtMin(m: number): string {
+  const h = Math.floor(m / 60) % 24, mm = m % 60;
+  return `${String(h).padStart(2, '0')}:${String(mm).padStart(2, '0')}`;
+}

@@ -26,3 +26,13 @@ describe('breathing', () => {
 describe('quadrants', () => {
   it('has all four', () => expect(['do', 'schedule', 'delegate', 'delete'].map((q) => quadrantInfo(q as any).title)).toEqual(['Do first', 'Schedule', 'Delegate', 'Delete']));
 });
+import { planBlocks, fmtMin } from '../src/tools/flowlib';
+describe('time blocking', () => {
+  it('inserts break after 50 min', () => {
+    const b = planBlocks([{ name: 'a', minutes: 30 }, { name: 'b', minutes: 30 }, { name: 'c', minutes: 30 }], 540);
+    expect(b[2].kind).toBe('break');
+    expect(b.map((x) => x.kind)).toEqual(['task', 'task', 'break', 'task']);
+  });
+  it('skips empty tasks', () => expect(planBlocks([{ name: '', minutes: 30 }, { name: 'x', minutes: 10 }], 0).length).toBe(1));
+  it('fmtMin', () => expect(fmtMin(545)).toBe('09:05'));
+});

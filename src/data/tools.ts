@@ -81,6 +81,20 @@ export const tools: Tool[] = [
     faqs: [{ q: 'How often?', a: 'Any time you feel scattered. Many people do one round before each focus session.' }],
     related: ['pomodoro-timer', 'habit-tracker'],
     component: 'BreathingTool', implemented: true
+  },
+  {
+    slug: 'time-blocking-planner',
+    name: 'Time Blocking Planner',
+    category: 'Plan',
+    description: 'Turn your task list into a timed schedule with automatic breaks.',
+    seoTitle: 'Time Blocking Planner - Schedule Your Day | FocusFlow',
+    metaDescription: 'Free time blocking planner. Enter tasks and durations, get a timed schedule with automatic breaks every 50 minutes.',
+    intro: 'A task list without times is a wish list. Assign minutes to each task and get a realistic schedule with breaks built in.',
+    howTo: ['Set your start time.', 'Add tasks with their estimated minutes.', 'Follow the generated schedule - breaks are inserted every 50 minutes.'],
+    examples: [{ title: 'Three 25-minute tasks from 9:00', output: '09:00 task 1, 09:25 task 2, 09:50 break, 10:00 task 3.' }],
+    faqs: [{ q: 'Estimate too low?', a: 'Most people underestimate by 30-50%. After a week of time blocking, your estimates get honest.' }],
+    related: ['pomodoro-timer', 'eisenhower-matrix', 'habit-tracker'],
+    component: 'PlanTool', implemented: true
   }
 ];
 export const implementedTools = tools.filter((t) => t.implemented);

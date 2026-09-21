@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://focusflow-ddo.pages.dev/sitemap-index.xml
